@@ -1,6 +1,8 @@
 package net.l0tyz.l0tyzadditions;
 
 import com.mojang.logging.LogUtils;
+import net.l0tyz.l0tyzadditions.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -28,6 +30,9 @@ public class L0tyzAdditions {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
@@ -40,7 +45,10 @@ public class L0tyzAdditions {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.CORRUPTEDCOMPASS);
+            event.accept(ModItems.CORRUPTED_EYE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
