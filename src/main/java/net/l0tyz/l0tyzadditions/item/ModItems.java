@@ -16,6 +16,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CORRUPTED_EYE = ITEMS.register("corrupted_eye",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WHISPERING_BONE = ITEMS.register("whispering_bone",
+            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

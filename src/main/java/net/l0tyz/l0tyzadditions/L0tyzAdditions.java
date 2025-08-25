@@ -48,6 +48,7 @@ public class L0tyzAdditions {
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.CORRUPTEDCOMPASS);
             event.accept(ModItems.CORRUPTED_EYE);
+            event.accept(ModItems.WHISPERING_BONE);
         }
     }
 
